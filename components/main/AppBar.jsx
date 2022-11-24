@@ -16,6 +16,9 @@ export default function AppBar() {
       <Button primary label="label" />
       <Button primary label="label" />
       <Button primary label="label" />
+      <Button primary label="label" />
+      <Button primary label="label" />
+      <Button primary label="label" />
     </Nav>
   );
 }

@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Grommet } from "grommet";
+import { Grommet, ResponsiveContext } from "grommet";
 
 const theme = {
   global: {
@@ -13,7 +13,9 @@ const theme = {
 function MyApp({ Component, pageProps }) {
   return (
     <Grommet full theme={theme}>
-      <Component {...pageProps} />
+      <ResponsiveContext.Consumer>
+        {(size) => <Component {...pageProps} size={size} />}
+      </ResponsiveContext.Consumer>
     </Grommet>
   );
 }
