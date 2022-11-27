@@ -5,7 +5,7 @@ import { Grommet, ResponsiveContext } from "grommet";
 const theme = {
   global: {
     colors: {
-      brand: "#3c5ccf",
+      brand: "#E9A696",
     },
   },
 };

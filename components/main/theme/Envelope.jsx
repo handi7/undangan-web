@@ -1,8 +1,7 @@
 import React from "react";
-import { Layer, Box, Button, Avatar, Card, Heading } from "grommet";
-import { Secure, Projects, FormClose } from "grommet-icons";
+import { Layer, Box, Button, Avatar, Card, Heading, Image } from "grommet";
 
-export default function Envelope({ show, setShow }) {
+export default function Envelope({ show, setShow, size }) {
   return (
     show && (
       <Layer full={true} animation="fadeIn">
@@ -10,22 +9,36 @@ export default function Envelope({ show, setShow }) {
           background="url(/envelope.jpg)"
           align="center"
           alignContent="center"
+          pad={{ vertical: "10vw" }}
           basis="full"
         >
-          <Box>
-            <Avatar
-              size="400px"
-              src="/frame-1.png"
-              style={{ position: "absolute" }}
+          <Box
+            align="center"
+            pad={{ bottom: "5vw" }}
+            style={{ position: "relative" }}
+          >
+            <Image
+              src="/frame-03.png"
+              style={{
+                position: "absolute",
+                width:
+                  size === "small"
+                    ? "28vw"
+                    : size === "medium"
+                    ? "23vw"
+                    : "17vw",
+              }}
             />
             <Avatar
-              size="310px"
-              style={{ margin: 43 }}
+              className="shadow"
+              size={
+                size === "small" ? "25vw" : size === "medium" ? "20vw" : "15vw"
+              }
               background="url(/foto.JPG)"
             />
           </Box>
 
-          <Heading level={2} color="#fff">
+          <Heading size="4vmin" color="#fff">
             Rani & Handi
           </Heading>
 
@@ -37,8 +50,12 @@ export default function Envelope({ show, setShow }) {
             align="center"
             style={{ padding: 10 }}
             background="#fff"
-            width="medium"
-            height="xsmall"
+            width={
+              size === "small" ? "35vw" : size === "medium" ? "30vw" : "20vw"
+            }
+            height={
+              size === "small" ? "15vw" : size === "medium" ? "10vw" : "5vw"
+            }
           >
             <Heading level={4}>Muhammad</Heading>
             <Heading level={4}>Di Tempat</Heading>

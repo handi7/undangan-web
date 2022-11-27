@@ -6,10 +6,20 @@ export default function Streaming() {
     <Box
       align="center"
       gap="medium"
-      pad={{ horizontal: "medium" }}
+      pad={{ horizontal: "medium", vertical: "5vw" }}
       className="text-center"
+      background="url(/bg-06.jpg)"
     >
-      <Heading level={2}>Live Streaming</Heading>
+      <Heading
+        color="brand"
+        style={{
+          fontFamily: "caroline",
+          fontSize: "7vmin",
+          textShadow: "2px 2px 2px rgba(0,0,0,0.26)",
+        }}
+      >
+        Live Streaming
+      </Heading>
       <Text>
         Kami mengundang Bapak/Ibu/Saudara/i untuk menyaksikan Pernikahan kami
         secara Virtual yang disiarkan langsung melalui Sosial Media di bawah ini

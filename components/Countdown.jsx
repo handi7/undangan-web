@@ -2,10 +2,10 @@ import { Box, Heading } from "grommet";
 import React, { useEffect, useState } from "react";
 
 export default function Countdown({ size }) {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  const [days, setDays] = useState(null);
+  const [hours, setHours] = useState(null);
+  const [minutes, setMinutes] = useState(null);
+  const [seconds, setSeconds] = useState(null);
 
   useEffect(() => {
     const target = new Date("2023-01-02 08:00 am");
@@ -32,8 +32,23 @@ export default function Countdown({ size }) {
     return () => clearInterval(interval);
   }, []);
 
+  const render = (type, label) => {
+    return (
+      <Box
+        align="center"
+        style={{ width: "15%", height: size === "small" ? "40px" : "50px" }}
+        background="brand"
+        round
+        border
+      >
+        <Heading level={2}>{type}</Heading>
+        <Heading level={5}>{label}</Heading>
+      </Box>
+    );
+  };
+
   return (
-    <Box className="text-center">
+    <Box className="text-center" gap="medium">
       <Heading level={4} alignSelf="center">
         Kami berharap Anda menjadi bagian dari hari istimewa kami!
       </Heading>
@@ -43,25 +58,10 @@ export default function Countdown({ size }) {
         gap={size === "small" ? "small" : "medium"}
         direction="row"
       >
-        <Box align="center" width="small" background="brand" round border>
-          <Heading level={2}>{days}</Heading>
-          <Heading level={5}>Hari</Heading>
-        </Box>
-
-        <Box align="center" width="small" background="brand" round border>
-          <Heading level={2}>{hours}</Heading>
-          <Heading level={5}>Jam</Heading>
-        </Box>
-
-        <Box align="center" width="small" background="brand" round border>
-          <Heading level={2}>{minutes}</Heading>
-          <Heading level={5}>Menit</Heading>
-        </Box>
-
-        <Box align="center" width="small" background="brand" round border>
-          <Heading level={2}>{seconds}</Heading>
-          <Heading level={5}>Detik</Heading>
-        </Box>
+        {render(days, "Hari")}
+        {render(hours, "Jam")}
+        {render(minutes, "Menit")}
+        {render(seconds, "Detik")}
       </Box>
     </Box>
   );

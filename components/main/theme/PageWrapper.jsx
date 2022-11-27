@@ -11,7 +11,7 @@ export default function PageWrapper({ title, description, size, children }) {
     <Box align="center">
       <Box
         fill
-        style={{ maxWidth: size === "large" ? 1080 : "100%" }}
+        style={{ maxWidth: 1080 }}
         // className="bg-danger"
       >
         <Head>
@@ -21,11 +21,11 @@ export default function PageWrapper({ title, description, size, children }) {
         </Head>
 
         <Box className="w-100">
-          <Envelope show={show} setShow={setShow} />
+          <Envelope show={show} setShow={setShow} size={size} />
           <Box
-            gap="large"
-            margin={{ bottom: "xlarge" }}
-            className="w-100 border"
+            // gap="large"
+            // pad={{ vertical: "xlarge" }}
+            className="w-100"
           >
             {children}
           </Box>

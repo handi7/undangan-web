@@ -5,6 +5,7 @@ import {
   Form,
   FormField,
   Heading,
+  Image,
   Main,
   Text,
   TextArea,
@@ -16,10 +17,13 @@ export default function Ucapan() {
   const [values, setValues] = useState({});
 
   return (
-    <Box align="center" gap="medium" className="w-100">
+    <Box align="center" gap="medium" background="url(/bg-06.jpg)">
+      <Image src="/d-bottom.png" width="100%" />
       <Box align="center">
-        <Heading level={2}>Ucapkan Sesuatu</Heading>
-        <Heading level={4}>Berikan Ucapan & Do'a Restu</Heading>
+        <Heading level={2} color="brand">
+          Ucapkan Sesuatu
+        </Heading>
+        <Heading level={4}>{`Berikan Ucapan & Do'a Restu`}</Heading>
       </Box>
 
       <Box
@@ -28,7 +32,7 @@ export default function Ucapan() {
         gap="medium"
         pad={{ horizontal: "xlarge" }}
       >
-        <Card width="100%" pad="medium">
+        <Card width="100%" pad="medium" background="white">
           <Form
             value={values}
             onChange={(nextValue) => setValues(nextValue)}
@@ -62,25 +66,27 @@ export default function Ucapan() {
           round="10px"
           background="brand"
         >
-          <Card background="white" pad="small">
+          <Card background="white" round="5px" pad="small">
             <Heading level={5}>Ahmad</Heading>
             <Text>Selamat yaa..</Text>
             <Text size="small">6 menit yang lalu</Text>
           </Card>
 
-          <Card background="white" pad="small">
+          <Card background="white" round="5px" pad="small">
+            <Heading level={5} color="brand">
+              Ahmad
+            </Heading>
+            <Text>Selamat yaa..</Text>
+            <Text size="small">6 menit yang lalu</Text>
+          </Card>
+
+          <Card background="white" round="5px" pad="small">
             <Heading level={5}>Ahmad</Heading>
             <Text>Selamat yaa..</Text>
             <Text size="small">6 menit yang lalu</Text>
           </Card>
 
-          <Card background="white" pad="small">
-            <Heading level={5}>Ahmad</Heading>
-            <Text>Selamat yaa..</Text>
-            <Text size="small">6 menit yang lalu</Text>
-          </Card>
-
-          <Card background="white" pad="small">
+          <Card background="white" round="5px" pad="small">
             <Heading level={5}>Ahmad</Heading>
             <Text>Selamat yaa..</Text>
             <Text size="small">6 menit yang lalu</Text>
