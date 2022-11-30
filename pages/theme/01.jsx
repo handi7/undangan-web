@@ -1,19 +1,27 @@
 import { Avatar, Box, Heading, Image } from "grommet";
 import React from "react";
-import AmplopDigital from "../../components/AmplopDigital";
-import Brides from "../../components/Brides";
-import Countdown from "../../components/Countdown";
-import Gallery from "../../components/Gallery";
-import LoveStory from "../../components/LoveStory";
-import PageWrapper from "../../components/main/theme/PageWrapper";
-import Streaming from "../../components/Streaming";
-import ThankYou from "../../components/ThankYou";
-import TheDate from "../../components/TheDate";
-import Ucapan from "../../components/Ucapan";
+import AmplopDigital from "../../components/theme/AmplopDigital";
+import Brides from "../../components/theme/Brides";
+import Countdown from "../../components/theme/Countdown";
+import Gallery from "../../components/theme/Gallery";
+import LoveStory from "../../components/theme/LoveStory";
+import PageWrapper from "../../components/theme/main/PageWrapper";
+import Streaming from "../../components/theme/Streaming";
+import ThankYou from "../../components/theme/ThankYou";
+import TheDate from "../../components/theme/TheDate";
+import Ucapan from "../../components/theme/Ucapan";
 
-export default function Theme({ size }) {
+export default function Theme01({ size, brides, guest }) {
+  const { male, female } = brides;
+
   return (
-    <PageWrapper title="Rani & Handi" description="Home" size={size}>
+    <PageWrapper
+      brides={brides}
+      guest={guest}
+      title={`${female.nickname} & ${male.nickname}`}
+      description="Home"
+      size={size}
+    >
       {/* <div className={styles.container}>
         <main className={styles.main}> */}
       <Box align="center" gap="large" className="w-100">
@@ -57,7 +65,7 @@ export default function Theme({ size }) {
               textShadow: "3px 3px 6px rgba(0,0,0,0.46)",
             }}
           >
-            Rani & Handi
+            {female.nickname} & {male.nickname}
           </Heading>
 
           {/* COUNTDOWN */}

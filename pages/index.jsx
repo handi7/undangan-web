@@ -1,19 +1,37 @@
 import styles from "../styles/Home.module.css";
-import { Heading, Avatar, Box, Image } from "grommet";
-import Countdown from "../components/Countdown";
-import Brides from "../components/Brides";
-import LoveStory from "../components/LoveStory";
-import TheDate from "../components/TheDate";
-import Streaming from "../components/Streaming";
-import Gallery from "../components/Gallery";
-import AmplopDigital from "../components/AmplopDigital";
-import Ucapan from "../components/Ucapan";
-import ThankYou from "../components/ThankYou";
+import { Heading, Avatar, Box, Image, Layer, Text, Spinner } from "grommet";
+import Theme01 from "./theme/01";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { authentication } from "../context/AuthContext";
 
 export default function Home({ size }) {
+  const { w } = useRouter().query;
+  const { user } = authentication();
+  // console.log(user);
+
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+    }, 1000);
+  }, []);
+
   return (
     <Box>
-      <Heading level={2}>Landing Page</Heading>{" "}
+      {show ? (
+        <Layer background="transparent">
+          <Box align="center">
+            <Spinner />
+            <Text color="white">Loading...</Text>
+          </Box>
+        </Layer>
+      ) : w ? (
+        <Theme01 size={size} wedding={w} />
+      ) : (
+        <Heading level={2}>Landing Page</Heading>
+      )}
     </Box>
   );
 }

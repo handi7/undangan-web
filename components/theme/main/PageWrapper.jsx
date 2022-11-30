@@ -4,7 +4,14 @@ import Head from "next/head";
 import AppBar from "./AppBar";
 import Envelope from "./Envelope";
 
-export default function PageWrapper({ title, description, size, children }) {
+export default function PageWrapper({
+  brides,
+  guest,
+  title,
+  description,
+  size,
+  children,
+}) {
   const [show, setShow] = useState(true);
 
   return (
@@ -21,17 +28,25 @@ export default function PageWrapper({ title, description, size, children }) {
         </Head>
 
         <Box className="w-100">
-          <Envelope show={show} setShow={setShow} size={size} />
-          <Box
-            // gap="large"
-            // pad={{ vertical: "xlarge" }}
-            className="w-100"
-          >
-            {children}
-          </Box>
+          {show ? (
+            <Envelope
+              brides={brides}
+              guest={guest}
+              show={show}
+              setShow={setShow}
+              size={size}
+            />
+          ) : (
+            <Box
+              // gap="large"
+              // pad={{ vertical: "xlarge" }}
+              className="w-100"
+            >
+              {children}
+              <AppBar />
+            </Box>
+          )}
         </Box>
-
-        <AppBar />
       </Box>
     </Box>
   );

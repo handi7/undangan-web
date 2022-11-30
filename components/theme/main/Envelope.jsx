@@ -1,7 +1,8 @@
 import React from "react";
 import { Layer, Box, Button, Avatar, Card, Heading, Image } from "grommet";
 
-export default function Envelope({ show, setShow, size }) {
+export default function Envelope({ brides, guest, show, setShow, size }) {
+  const { male, female } = brides;
   return (
     show && (
       <Layer full={true} animation="fadeIn">
@@ -39,7 +40,7 @@ export default function Envelope({ show, setShow, size }) {
           </Box>
 
           <Heading size="4vmin" color="#fff">
-            Rani & Handi
+            {female.nickname} & {male.nickname}
           </Heading>
 
           <Heading level={4} color="#fff">
@@ -57,8 +58,8 @@ export default function Envelope({ show, setShow, size }) {
               size === "small" ? "15vw" : size === "medium" ? "10vw" : "5vw"
             }
           >
-            <Heading level={4}>Muhammad</Heading>
-            <Heading level={4}>Di Tempat</Heading>
+            <Heading level={4}>{guest.name}</Heading>
+            <Heading level={4}>{guest.address}</Heading>
           </Card>
 
           <Box className="mt-3">
